@@ -5,9 +5,9 @@ import { useSnapshot } from 'valtio';
 
 import state from '../store';
 
-const CameraRig = () => {
+const CameraRig = ({ children }) => {
   return (
-    <div>CameraRig</div>
+    <group>{children}</group>
   )
 }
 
