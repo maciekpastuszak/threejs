@@ -21,7 +21,6 @@ const Shirt = () => {
       material-roughness={1}
       dispose={null}
     >
-      
     </mesh>
   </group>
   )
