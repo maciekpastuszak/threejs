@@ -13,7 +13,7 @@ const Shirt = () => {
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
   return (
-    <group key={stateString}>
+    <group>
     <mesh
       castShadow
       geometry={nodes.T_Shirt_male.geometry}
