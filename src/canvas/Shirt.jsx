@@ -29,6 +29,17 @@ const Shirt = () => {
           map={fullTexture}
         />
       )}
+      {snap.isLogoTextur && (
+        <Decal 
+          position={[0, 0.04, 0.15]}
+          rotation={[0, 0, 0]}
+          scale={0.15}
+          map={logoTexture}
+          map-anisotropy={16}
+          depthTest={false}
+          depthWrite={true}
+        />
+      )}
     </mesh>
   </group>
   )
