@@ -30,13 +30,36 @@ const generateTabContent = () => {
     case "colorpicker":
       return <ColorPicker />
     case "filepicker":
-      return <FilePicker />
+      return <FilePicker
+      file={file}
+      setFile={setFile}
+      readFile={readFile}
+    />
     case "aipicker":
       return <AIPicker/>
     default:
       return null;
+    }
   }
-}
+
+  const handleDecals = (type, result) => {
+    const decalType = DecalTypes[type];
+
+    state[decalType.stateProperty] = result;
+
+    if(!activeFilterTab[decalType.filterTab]) {
+      handleActiveFilterTab(decalType.filterTab)
+    }
+  }
+
+  const readFile = (type) => {
+    reader(file)
+    .then((result) => {
+      handleDecals(type, result);
+      setActiveEditorTab('')
+    })
+  }
+
 
   return (
     <AnimatePresence>
