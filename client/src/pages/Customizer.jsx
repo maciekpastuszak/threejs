@@ -51,7 +51,21 @@ const generateTabContent = () => {
     if(!prompt) return alert("Please eneter a prompt");
 
     try {
-      //call backend to generate an ai image
+      setGeneratingImg(true);
+
+      const response = await fetch('localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify ({
+          prompt,
+        })
+      })
+
+      const data = await response.json();
+
+      handleDecals(type, `data:image/png;base64.${data.photo}`)
     } catch (error) {
       alert(error)
     } finally {
